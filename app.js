@@ -22,12 +22,19 @@ const updateHref = (base, url) => {
     0,
     document.baseURI.lastIndexOf("/") + 1
   );
+  const domainURI = document.baseURI.substring(
+    0,
+    document.baseURI.indexOf(document.domain) + document.domain.length + 1
+  );
   console.log("base: ", base);
   console.log("url: ", url);
   console.log("baseURI: ", baseURI);
   console.log(document);
-  console.log("toReturn: ", url.replace(baseURI, base));
-  return url.replace(baseURI, base).replace(document.domain, base);
+  console.log(
+    "toReturn: ",
+    url.replace(baseURI, base).replace(domainURI, base)
+  );
+  return url.replace(baseURI, base).replace(domainURI, base);
 };
 
 const reloadAll = (parent, tagName, baseURL) => {
