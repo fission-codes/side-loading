@@ -17,10 +17,10 @@ const getContent = url => {
 };
 
 const updateHref = (base, url) => {
-  // console.log("base: ", base);
-  // console.log("url: ", url);
-  // console.log("document.baseURI: ", document.baseURI);
-  // console.log("toReturn: ", url.replace(document.baseURI, base));
+  console.log("base: ", base);
+  console.log("url: ", url);
+  console.log("document.baseURI: ", document.baseURI);
+  console.log("toReturn: ", url.replace(document.baseURI, base));
   return url.replace(document.baseURI, base);
 };
 
