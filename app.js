@@ -17,12 +17,16 @@ const getContent = url => {
 };
 
 const updateHref = (base, url) => {
+  console.log(document.baseURI.lastIndexOf("/") + 1);
+  const baseURI = document.baseURI.substring(
+    0,
+    document.baseURI.lastIndexOf("/") + 1
+  );
   console.log("base: ", base);
   console.log("url: ", url);
-  console.log(document);
-  console.log("document.baseURI: ", document.baseURI);
-  console.log("toReturn: ", url.replace(document.baseURI, base));
-  return url.replace(document.baseURI, base);
+  console.log("baseURI: ", baseURI);
+  console.log("toReturn: ", url.replace(baseURI, base));
+  return url.replace(baseURI, base);
 };
 
 const reloadAll = (parent, tagName, baseURL) => {
