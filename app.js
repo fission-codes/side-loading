@@ -25,8 +25,9 @@ const updateHref = (base, url) => {
   console.log("base: ", base);
   console.log("url: ", url);
   console.log("baseURI: ", baseURI);
+  console.log(document);
   console.log("toReturn: ", url.replace(baseURI, base));
-  return url.replace(baseURI, base);
+  return url.replace(baseURI, base).replace(document.domain, base);
 };
 
 const reloadAll = (parent, tagName, baseURL) => {
