@@ -29,6 +29,7 @@ const updateHref = (base, url) => {
   console.log("base: ", base);
   console.log("url: ", url);
   console.log("baseURI: ", baseURI);
+  console.log("domainURI: ", domainURI);
   console.log(document);
   console.log(
     "toReturn: ",
