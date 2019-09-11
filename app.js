@@ -16,8 +16,13 @@ const getContent = url => {
   });
 };
 
-const updateHref = (base, url) => {
-  console.log(document.baseURI.lastIndexOf("/") + 1);
+const getHostname = url => {
+  const tmp = document.createElement("a");
+  tmp.href = url;
+  return `https://${tmp.hostname}/`;
+};
+
+const updateHref = (hostname, url) => {
   const baseURI = document.baseURI.substring(
     0,
     document.baseURI.lastIndexOf("/") + 1
@@ -26,63 +31,53 @@ const updateHref = (base, url) => {
     0,
     document.baseURI.indexOf(document.domain) + document.domain.length + 1
   );
-  console.log("base: ", base);
-  console.log("url: ", url);
-  console.log("baseURI: ", baseURI);
-  console.log("domainURI: ", domainURI);
-  console.log(document);
-  console.log(
-    "toReturn: ",
-    url.replace(baseURI, base).replace(domainURI, base)
-  );
-  return url.replace(baseURI, base).replace(domainURI, base);
+
+  return url.replace(baseURI, hostname).replace(domainURI, hostname);
 };
 
-const reloadAll = (parent, tagName, baseURL) => {
+const reloadAll = (parent, tagName, hostname) => {
   const collection = parent.getElementsByTagName(tagName);
   for (let i = 0; i < collection.length; i++) {
     const node = collection[i];
     const newNode = node.cloneNode(true);
     if (node.href) {
-      newNode.href = updateHref(baseURL, node.href);
+      newNode.href = updateHref(hostname, node.href);
     }
     if (node.src) {
-      newNode.src = updateHref(baseURL, node.src);
+      newNode.src = updateHref(hostname, node.src);
     }
+
     node.parentElement.replaceChild(newNode, node);
   }
 };
 
-const replaceHTML = (url, html) => {
-  var doc = document.createElement("html");
-  doc.innerHTML = html;
+const replaceHTML = (hostname, html) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
 
-  const head = doc.getElementsByTagName("head")[0];
-  if (head) {
-    head.childNodes.forEach(n => {
-      n.baseURI = url;
-      if (n.href) {
-        n.href = updateHref(url, n.href);
-      }
-      if (n.src) {
-        n.src = updateHref(url, n.src);
-      }
-      console.log(n);
-      document.head.appendChild(n);
-    });
-  }
+  doc.head.childNodes.forEach(n => {
+    const newNode = n.cloneNode(true);
+    if (n.href) {
+      newNode.href = updateHref(hostname, n.href);
+    }
+    if (n.src) {
+      newNode.src = updateHref(hostname, n.src);
+    }
+    document.head.appendChild(newNode);
+  });
 
   const body = doc.getElementsByTagName("body")[0];
   if (body) {
     const toReload = ["script", "img", "link", "a"];
-    toReload.forEach(tag => reloadAll(body, tag, url));
+    toReload.forEach(tag => reloadAll(body, tag, hostname));
     document.body = body;
   }
 };
 
 const loadPage = async url => {
   const pageContent = await getContent(url);
-  replaceHTML(url, pageContent);
+  const hostname = getHostname(url);
+  replaceHTML(hostname, pageContent);
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -103,14 +98,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
-// const run = async () => {
-//   const pageContent = await getContent();
-//   replaceHTML(pageContent);
-//   // console.log("page reloaded");
-//   // setTimeout(() => {
-//   //   console.log("Ipfs still available: ", isIpfsAvailable());
-//   // }, 3000);
-// };
-
-// run();
