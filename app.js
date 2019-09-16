@@ -120,6 +120,10 @@ const emitDomLoaded = () => {
   var DOMContentLoaded_event = document.createEvent("Event");
   DOMContentLoaded_event.initEvent("DOMContentLoaded", true, true);
   window.document.dispatchEvent(DOMContentLoaded_event);
+  var WindowLoad_event = window.createEvent("Event");
+  WindowLoad_event.initEvent("load", true, true);
+  window.dispatchEvent(WindowLoad_event);
+
 };
 
 const addScripts = scripts => {
