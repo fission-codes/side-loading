@@ -1,0 +1,519 @@
+<!DOCTYPE html><!-- This site was created in Webflow. http://www.webflow.com --><!-- Last Published: Wed Sep 11 2019 18:13:36 GMT+0000 (UTC) --><html data-wf-domain="www.meltthefly.com" data-wf-page="5c72fa4a3312820cf13ca3d5" data-wf-site="5b868daf3946b0c71df263f1"><head><meta charset="utf-8"/><title>Melt the Fly – Stories told from a different perspective</title><meta content="Melt the Fly – Stories told from a different perspective" property="og:title"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="Webflow" name="generator"/><link href="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/css/meltthefly.webflow.8abc7ab8e.css" rel="stylesheet" type="text/css"/><style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742d"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742e"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742c"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f2"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f3"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f1"] {background-color:rgb(255,255,255);}}@media (max-width:991px) and (min-width:768px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742d"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742e"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742c"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f2"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f3"] {background-color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f1"] {background-color:rgb(255,255,255);}}</style><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]--><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5bf69b42c1761172bbac1290_fav.jpg" rel="shortcut icon" type="image/x-icon"/><link href="https://uploads-ssl.webflow.com/img/webclip.png" rel="apple-touch-icon"/><link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/ix4cf1nwgtk54xn/fullpage.css">
+
+<style>
+  .ms-intro {
+    pointer-events: none !important;
+  }
+  .pop-up-overlay, .social-white, .social-black {
+    pointer-events: none;
+  }
+  .noscroll {
+    overflow: hidden !important;
+}
+.cursor {
+	pointer-events: none;
+}
+  
+  .info-outer-overlay, .home-button-overlay {
+	pointer-events: none;
+  }
+  
+.display-none {
+  display: none;
+  }
+  
+  .black {
+	background-color: #000000;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .black {
+	background-color: #FFFFFF;
+	}
+  body {
+  cursor: auto !important;
+}
+}
+
+</style><style>
+
+.display_none {
+	display: none;
+  }
+.smooth {
+-webkit-transition: -webkit-transform 1000ms cubic-bezier(.77, 0, .175, 1);
+transition: -webkit-transform 1000ms cubic-bezier(.77, 0, .175, 1);
+transition: transform 1000ms cubic-bezier(.77, 0, .175, 1);
+transition: transform 1000ms cubic-bezier(.77, 0, .175, 1), -webkit-transform 1000ms cubic-bezier(.77, 0, .175, 1);
+}
+.section-back-to-position {
+  transform: translate(0%, 0%) !important;
+  transform: translate(0%, 0%) !important;
+  transform: translate(0%, 0%) !important;
+}
+.fullpage-wrapper-after-click {
+width: 100%;
+height: 100%;
+}
+.num-move-up {
+  transform: translate(0%, -100%);
+  transform: translate(0%, -100%);
+  transform: translate(0%, -100%);
+}
+.num-move-down {
+  transform: translate(0%, 100%);
+  transform: translate(0%, 100%);
+  transform: translate(0%, 100%);
+}
+.intro_container {
+	pointer-events: none !important;
+  }
+body {
+  background-color: black;
+  cursor: none !important;
+}
+.opacity-zero {
+	opacity: 0;
+  }
+.opacity-zero-flip {
+	opacity: 0;
+  transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+  }
+body {
+overscroll-behavior: none;
+}
+.glitch-image-out {
+   transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+	opacity: 0;
+  }
+.section-small {
+   transform: scale(0.3) !important;
+  -ms-transform: scale(0.3) !important;
+  -webkit-transform: scale(0.3) !important;
+  }
+
+.below-screen {
+  transform: translate(0vh, 0%);
+  -ms-transform: translate(0vh, 0%);
+  -webkit-transform: translate(0vh, 0%);
+	opacity: 0;
+}
+.intro-text-moved {
+  transform: translate(0%, -98%);
+  -ms-transform: translate(0%, -98%);
+  -webkit-transform: translate(0%, -98%);
+}
+.above-screen {
+  transform: translate(-167vh, 0%);
+  -ms-transform: translate(-167vh, 0%);
+  -webkit-transform: translate(-167vh, 0%);
+	opacity: 0;
+}
+.up-100-vh {
+  transform: translate(0%, -100vh);
+  -ms-transform: translate(0%, -100vh);
+  -webkit-transform: translate(0%, -100vh);
+}
+  
+.text-below-screen {
+  transform: translate(43vh, 25%);
+  -ms-transform: translate(43vh, 25%);
+  -webkit-transform: translate(43vh, 25%);
+} 
+.text-above-screen {
+  transform: translate(-43vh, -25%);
+  -ms-transform: translate(-42vh, -25%);
+  -webkit-transform: translate(-42vh, -25%);
+} 
+.info-heading-solid, .perspective_text.outline, .perspective_text_title.outline, .perspective_text_FROM_A---EXIT.outline {
+  color: #ffffff;
+  -webkit-text-fill-color: rgba(0,0,0,0); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+}
+.perspective_text, .perspective_text_title, .big_text_outline, .perspective_text_FROM_A---EXIT { 
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+}
+.text-container { 
+	pointer-events: none !important; 
+}
+.perspective-text-hover {
+  transform: translate(0px, -96%);
+  -ms-transform: translate(0px, -96%);
+  -webkit-transform: translate(0px, -96%);
+}
+.project-image-hover {
+  transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  opacity: 0.5;
+}
+.arrow-head-hover {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  opacity: 1 !important;
+}
+.perspective-text-clicked {
+  transform: translate(0px, -196%) !important;
+  -ms-transform: translate(0px, -196%) !important;
+  -webkit-transform: translate(0px, -196%) !important;
+  opacity: 0;
+}
+.project-image-clicked {
+  transform: scale(1) !important;
+  -ms-transform: scale(1) !important;
+  -webkit-transform: scale(1) !important;
+  opacity: 1 !important;
+}
+.arrow-head-clicked {
+  transform: scale(0) !important;
+  -ms-transform: scale(0) !important;
+  -webkit-transform: scale(0) !important;
+  opacity: 0 !important;
+}
+.skew-container-clicked {
+	transform: skew(0);
+  -ms-transform: skew(0);
+  -webkit-transform: skew(0);
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+.move-down {
+  transform: translate(0%, 100%);
+  -ms-transform: translate(0%, 100%);
+  -webkit-transform: translate(0%, 100%);
+}
+.move-up {
+  transform: translate(0%, -100%);
+  -ms-transform: translate(0%, -100%);
+  -webkit-transform: translate(0%, -100%);
+}
+.move-right {
+  transform: translate(100%, 0%);
+  -ms-transform: translate(100%, 0%);
+  -webkit-transform: translate(100%, 0%);
+}
+.opacity-z {
+	opacity: 0;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .intro_container_inner, .cube_wrapper {
+  display: none !important;
+}
+  .ms-logo, .ms-intro {
+  display: block !important;
+}
+.above-screen {
+  transform: translate(0%, 0%) !important;
+  -ms-transform: translate(0%, 0%) !important;
+  -webkit-transform: translate(0%, 0%) !important;
+	opacity: 0;
+}
+}
+</style></head><body class="body"><div class="ms-intro opacity-z"></div><div data-w-id="68e58df7-ae64-32be-9966-f703c4a4261f" style="opacity:0" class="main"><div class="hero_container"><div data-w-id="b5aae2d9-ff75-d1d0-0b75-e577270454a4" class="glitch_image_wrapper"><div data-w-id="c5adb14f-557e-e36d-6382-996af9ddc385" class="glitch_margin"><div data-delay="500" data-animation="cross" data-autoplay="1" data-disable-swipe="1" data-duration="10" data-infinite="1" class="glitch_slider w-slider"><div class="mask w-slider-mask"><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf59b6a39236d3141f5b15e_7.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf59b6061b4714d56293690_6.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf599b866cf7de58007de1e_5.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf59b532083a218f2b5139a_4.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf59b4dba0bd55e03502ea1_3.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf59b472ee682aa5f4bd017_2.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div><div class="w-slide"><div class="hero_glitch_collection_wrapper w-dyn-list"><div class="hero_glitch_collection w-dyn-items"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf599836a6ca59a450dad1f_1.jpg&quot;)" class="hero_glitch_image glitch w-dyn-item"></div></div></div></div></div><div class="display_none w-slider-arrow-left"><div class="w-icon-slider-left"></div></div><div class="display_none w-slider-arrow-right"><div class="w-icon-slider-right"></div></div><div class="display_none w-slider-nav"></div></div></div></div><div data-w-id="62c8116b-dfa8-18e1-b4fa-44b9d7fa489b" class="box_wrapper"><div class="cube_wrapper"><div class="cube_wrapper_inner"><div data-w-id="ff7a4acb-300c-feac-20c1-41e0cb5561d2" class="_3d_cube"><div class="cube_front"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5b868daf3946b00557f2640c_fly.svg" data-w-id="b734fc53-b3e4-e07b-7dea-2ec74a54fa7b" alt="" class="cube_image_fly"/></div><div class="cube_bottom"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5b868daf3946b092e0f2640b_the.svg" data-w-id="058172ce-1899-0e54-0183-c9037f192215" alt="" class="cube_image_the"/></div><div class="cube_left"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5b868daf3946b05bdbf26411_melt.svg" data-w-id="c11e105d-e85b-7a70-a168-4f8948e15450" alt="" class="cube_image_melt"/></div></div></div></div><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5b8699973e686675444e8cd9_logo.svg" alt="" class="ms-logo"/></div><div class="intro_container"><div class="intro_container_inner"><div class="intro_text_container"></div></div></div></div></div><div class="intro_container"><div class="intro_container_inner into-small opacity-z"><div class="intro_text_container"><div class="statment_wrapper w-clearfix"><div class="line"><div class="line_angled_1"><div class="perspective_text_down_100"><div class="perspective_text outline">STORIES TOLD</div></div><div class="perspective_text_down_200"><div class="perspective_text solid">FROM A DIFFERENT</div></div></div></div><div class="line"><div class="line_straight1"><div class="perspective_text solid">STORIES TOLD</div><div class="perspective_text_down_100"><div class="perspective_text outline">FROM A DIFFERENT</div></div></div></div><div class="line"><div class="line_angled_2"><div class="perspective_text solid">FROM A DIFFERENT</div><div class="perspective_text_down_100 moved_right outline"><div class="perspective_text outline">PERSPECTIVE</div></div></div></div><div class="line"><div class="line_straight2"><div class="perspective_text solid">PERSPECTIVE</div></div></div></div></div></div></div><div class="main-container"><div class="main-container-inner"><div id="fullpage-wrapper" class="fullpage-wrapper w-dyn-list"><div id="fullpage" class="id-fullpage w-dyn-items"><div data-w-id="470571cb-7c4a-61dc-b083-56970455a28e" class="section count w-dyn-item"><div class="project-wrapper"><div class="skew-container-outer below-screen"><div class="skew-container"><a href="/films/sinkorskim" class="skew-container-inner delay w-inline-block"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5b868daf3946b05148f26460_image_1.jpg&quot;)" class="project-image"></div></a><div class="arrow-head arrow_1"></div><div class="arrow-head arrow_2"></div><div class="arrow-head arrow3"></div><div class="arrow-head arrow4"></div></div><div class="text-container text-below-screen"><div class="mouse-track-wrapper"><div class="title_wrapper"><div class="title_inner w-clearfix"><div class="title_line"><div class="line_angled_1 wider"><div class="perspective_text_down_100"><div class="perspective_text_title outline">Sink or Skim</div></div><div class="perspective_text_down_200"><div class="perspective_text_title w-dyn-bind-empty"></div></div></div></div><div class="title_line"><div class="line_straight1 wider"><div class="perspective_text_title">Sink or Skim</div><div class="perspective_text_down_100"><div class="perspective_text_title outline w-dyn-bind-empty"></div></div></div></div><div class="title_line"><div class="line_angled_2 wider"><div class="perspective_text_title w-dyn-bind-empty"></div><div class="perspective_text_down_100 outline w-condition-invisible"><div class="perspective_text_title outline w-dyn-bind-empty"></div></div></div></div><div class="title_line"><div class="line_straight2-title wider"><div class="perspective_text_title w-dyn-bind-empty"></div></div></div></div></div></div></div></div></div><div class="number-null">01</div></div><div data-w-id="470571cb-7c4a-61dc-b083-56970455a28e" class="section count w-dyn-item"><div class="project-wrapper"><div class="skew-container-outer below-screen"><div class="skew-container"><a href="/films/pianodrome" class="skew-container-inner delay w-inline-block"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5b868daf3946b0fc7df26462_image_2.jpg&quot;)" class="project-image"></div></a><div class="arrow-head arrow_1"></div><div class="arrow-head arrow_2"></div><div class="arrow-head arrow3"></div><div class="arrow-head arrow4"></div></div><div class="text-container text-below-screen"><div class="mouse-track-wrapper"><div class="title_wrapper"><div class="title_inner w-clearfix"><div class="title_line"><div class="line_angled_1 wider"><div class="perspective_text_down_100"><div class="perspective_text_title outline">Instruments in</div></div><div class="perspective_text_down_200"><div class="perspective_text_title">the Architecture</div></div></div></div><div class="title_line"><div class="line_straight1 wider"><div class="perspective_text_title">Instruments in</div><div class="perspective_text_down_100"><div class="perspective_text_title outline">the Architecture</div></div></div></div><div class="title_line"><div class="line_angled_2 wider"><div class="perspective_text_title">the Architecture</div><div class="perspective_text_down_100 outline w-condition-invisible"><div class="perspective_text_title outline w-dyn-bind-empty"></div></div></div></div><div class="title_line"><div class="line_straight2-title wider"><div class="perspective_text_title w-dyn-bind-empty"></div></div></div></div></div></div></div></div></div><div class="number-null">02</div></div><div data-w-id="470571cb-7c4a-61dc-b083-56970455a28e" class="section count w-dyn-item"><div class="project-wrapper"><div class="skew-container-outer below-screen"><div class="skew-container"><a href="/films/showreel" class="skew-container-inner delay w-inline-block"><div style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b032dcf26442/5bf599b866cf7de58007de1e_5.jpg&quot;)" class="project-image"></div></a><div class="arrow-head arrow_1"></div><div class="arrow-head arrow_2"></div><div class="arrow-head arrow3"></div><div class="arrow-head arrow4"></div></div><div class="text-container text-below-screen"><div class="mouse-track-wrapper"><div class="title_wrapper"><div class="title_inner w-clearfix"><div class="title_line"><div class="line_angled_1 wider"><div class="perspective_text_down_100"><div class="perspective_text_title outline">Showreel</div></div><div class="perspective_text_down_200"><div class="perspective_text_title">2019</div></div></div></div><div class="title_line"><div class="line_straight1 wider"><div class="perspective_text_title">Showreel</div><div class="perspective_text_down_100"><div class="perspective_text_title outline">2019</div></div></div></div><div class="title_line"><div class="line_angled_2 wider"><div class="perspective_text_title">2019</div><div class="perspective_text_down_100 outline w-condition-invisible"><div class="perspective_text_title outline w-dyn-bind-empty"></div></div></div></div><div class="title_line"><div class="line_straight2-title wider"><div class="perspective_text_title w-dyn-bind-empty"></div></div></div></div></div></div></div></div></div><div class="number-null">03</div></div></div></div><div id="hero-section" class="section"><div class="hero-null-for-fullpage"></div></div><div id="intro-section" class="section"><div class="intro-null-for-fullpage"></div></div><div id="footer-section" class="section"><div class="footer-null-for-fullpage"></div><div class="footer-inner"><div class="skew w-clearfix"><div class="left-column"><div class="left-column-inner-footer"><p class="para smaller"><span class="white">Melt the Fly</span><br/>128 Pitt Street<br/>Edinburgh EH6 4DD<br/><a href="mailto:buzz@meltthefly.com" class="text-link">buzz@meltthefly.com</a></p><p class="para"><strong class="white">Will Hewitt<br/>‍</strong><a href="mailto:will@meltthefly.com" class="text-link">will@meltthefly.com</a><br/><a href="tel:07905361118" class="text-link">07905.361.118</a></p><p class="para"><strong class="white">Austen McCowan<br/>‍</strong><a href="mailto:austen@meltthefly.com" class="text-link">austen@meltthefly.com</a><br/><a href="tel:07427436726" class="text-link">07427.436.726</a></p></div></div><div class="right-column less-side"><div class="info-heading-container"><h1 class="info-heading-solid-footer smaller-on-mob">Stories told<br/>from a different<br/>perspective</h1></div><div class="main-para-container"><p class="main-info-text-footer less-pad">We specialise in creative storytelling. Good narratives hide in plain sight but it takes a sharp eye to recognise them. Our work means researching a subject from every intersection. By distilling it down to its essence and rebuilding it, we create a theatrical and cinematic experience for the viewer. We have full broadcast capabilities. We want to take projects from pitch to delivery so please let us know if you have a project that requires filming, whether it’s creative or commercial. Although we like to get involved from the beginning of an idea, we can jump on board at any time, get us a buzz for Camera Operator, Drone Pilot, Timelapse and Producer services, equally for Post-Production send us for edits and colour grading jobs.</p></div></div></div><div class="social-inner-footer-mob w-clearfix"><a href="https://www.instagram.com/meltthefly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654ed739e719cec2b0e6c7_instagram.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f1f64ce1b730ff01a06_instagram.svg" alt="" class="social-black"/></a><a href="https://vimeo.com/meltthefly" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f4864ce1b6da7f01a30_vimeo-logo.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f57bd4ed02ca21275f7_vimeo-logo-black.svg" alt="" class="social-black"/></a><a href="https://www.facebook.com/MeltTheFly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655be39a3f5b1e17d14970_facebook.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655bf07405c95bfef8d62e_facebookblac.svg" alt="" class="social-black"/></a></div></div></div></div><div class="signposting_container opacity-zero-flip"><div class="signposting"><div class="signposting_text-films">Featured films</div></div></div><div class="signposting_container-intro opacity-zero-flip"><div class="signposting"><div class="signposting_text-films">INTRODUCTION</div></div></div><div class="num-container opacity-zero"><div class="number-inner"><div class="number-signposting num-transition">01</div></div><div class="fixed-num-inner"><div class="zero">0</div><div class="fixed-number">1</div></div></div></div><div data-w-id="824b5561-f484-d2c2-aa1f-93781420147c" class="info-outer"></div><div class="cursor"><div data-w-id="63e81a80-e08b-86ab-711a-f9eeca1f8c2f" style="display:none" class="dot"><div class="dot-inner opacity-z"></div><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c6449399b9111dc712f4449_down.svg" alt="" class="cursor-down"/></div></div><div class="info-outer-overlay opacity-zero"><div style="-webkit-transform:translate3d(0, 0PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);height:12PX" class="info-container"><div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="i-dot"></div><div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="i-top-line"></div><div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0)" class="i-middle-line-1"></div><div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0DEG) skew(0, 0)" class="i-middle-line-2"></div><div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="i-bottom-line"></div></div></div><div class="mouse-track-overlay display-none"></div><div class="nav-arrows opacity-z"><div style="display:block;opacity:1" class="nav-arrows-inner"><div data-w-id="0d2fe9e5-bfd9-1dda-6404-235f6c62ec62" class="up-arrow"><div class="up-arrow-inner"><div data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742c" class="arrow-main-line-homepage"><div data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742d" class="arrow-line-one-homepage"></div><div data-w-id="d3f67a91-93e8-1ee4-3b1f-a7b8e94f742e" class="arrow-line-two-homepage"></div></div></div></div><div data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f0" class="down-arrow"><div class="down-arrow-inner"><div data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f1" class="arrow-main-line-homepage"><div data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f2" class="arrow-line-one-homepage"></div><div data-w-id="f334f289-88f9-c639-bde8-4fb55f94c7f3" class="arrow-line-two-homepage"></div></div></div></div></div></div><div class="pop-up-overlay hidden"><div data-poster-url="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-transcode.mp4,https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="bg-vid w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true"><source src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-transcode.mp4" data-wf-ignore="true"/><source src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c4e50f2348539bc95cab1d7_stone_skim-transcode.webm" data-wf-ignore="true"/></video></div></div><div id="overlay" class="pop-up closed"><div class="pop-up-inner"><div class="social-container"><div class="social-inner out w-clearfix"><a href="https://www.instagram.com/meltthefly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654ed739e719cec2b0e6c7_instagram.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f1f64ce1b730ff01a06_instagram.svg" alt="" class="social-black"/></a><a href="https://vimeo.com/meltthefly" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f4864ce1b6da7f01a30_vimeo-logo.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f57bd4ed02ca21275f7_vimeo-logo-black.svg" alt="" class="social-black"/></a><a href="https://www.facebook.com/MeltTheFly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655be39a3f5b1e17d14970_facebook.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655bf07405c95bfef8d62e_facebookblac.svg" alt="" class="social-black"/></a></div></div><div class="skew w-clearfix"><div class="left-column"><div class="left-column-inner out"><p class="para"><span class="white">Melt the Fly</span><br/>128 Pitt Street<br/>Edinburgh EH6 4DD<br/><a href="mailto:buzz@meltthefly.com" class="text-link">buzz@meltthefly.com</a></p><p class="para"><strong class="white">Will Hewitt<br/>‍</strong><a href="mailto:will@meltthefly.com" class="text-link">will@meltthefly.com</a><br/><a href="tel:07905361118" class="text-link">07905.361.118</a></p><p class="para"><strong class="white">Austen McCowan<br/>‍</strong><a href="mailto:austen@meltthefly.com" class="text-link">austen@meltthefly.com</a><br/><a href="tel:07427436726" class="text-link">07427.436.726</a></p></div></div><div class="right-column"><div class="info-heading-container"><h1 class="info-heading-solid out">Stories told<br/>from a different<br/>perspective</h1></div><div class="main-para-container"><p class="main-info-text out">We specialise in creative storytelling. Good narratives hide in plain sight but it takes a sharp eye to recognise them. Our work means researching a subject from every intersection. By distilling it down to its essence and rebuilding it, we create a theatrical and cinematic experience for the viewer. We have full broadcast capabilities. We want to take projects from pitch to delivery so please let us know if you have a project that requires filming, whether it’s creative or commercial. Although we like to get involved from the beginning of an idea, we can jump on board at any time, get us a buzz for Camera Operator, Drone Pilot, Timelapse and Producer services, equally for Post-Production send us for edits and colour grading jobs.</p></div></div></div><div class="para credit out">Branding and website by <a href="http://www.boldly.co.uk" target="_blank" class="text-link">Boldly</a></div></div></div><div class="para credit-footer opacity-z">Branding and website by <a href="http://www.boldly.co.uk" target="_blank" class="text-link">Boldly</a></div><div class="social-container-footer social-out"><div class="social-inner-footer w-clearfix"><a href="https://www.instagram.com/meltthefly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654ed739e719cec2b0e6c7_instagram.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f1f64ce1b730ff01a06_instagram.svg" alt="" class="social-black"/></a><a href="https://vimeo.com/meltthefly" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f4864ce1b6da7f01a30_vimeo-logo.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c654f57bd4ed02ca21275f7_vimeo-logo-black.svg" alt="" class="social-black"/></a><a href="https://www.facebook.com/MeltTheFly/" target="_blank" class="social-square w-inline-block"><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655be39a3f5b1e17d14970_facebook.svg" alt="" class="social-white"/><img src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/5c655bf07405c95bfef8d62e_facebookblac.svg" alt="" class="social-black"/></a></div></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><script src="https://uploads-ssl.webflow.com/5b868daf3946b0c71df263f1/js/webflow.e6c50242e.js" type="text/javascript"></script><!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]--><script src="https://dl.dropbox.com/s/gfauryt4wrwv44w/bodyScrollLock.js"></script>
+<script type="text/javascript" src="https://dl.dropbox.com/s/679je7xsq5npnjj/scrolloverflow.min.js"></script>
+<script type="text/javascript" src="https://dl.dropbox.com/s/oyyflb5cnq52c6q/fullpage.js"></script>
+
+<script src="https://dl.dropbox.com/s/p16n527nlag7vd9/grained.min.js"></script>
+
+<script src="https://dl.dropbox.com/s/gjsuana92oytsra/mgGlitch.js"></script>
+<script src="https://dl.dropbox.com/s/hdeprubrrfmcmsr/glitch.jquery.js"></script>
+
+
+
+
+<script>
+var options = {
+  "animate": true,
+  "patternWidth": 130.64,
+  "patternHeight": 209.05,
+  "grainOpacity": 0.09,
+  "grainDensity": 1,
+  "grainWidth": 1,
+  "grainHeight": 1
+}
+
+grained('#grain-not', options);
+</script>
+
+<script>
+if(typeof window.chrome === "object" && navigator.appVersion.indexOf('Edge') === -1) {
+  $( ".glitch" ).mgGlitch();
+}  
+  
+$(".skew-container-inner").click(function(){
+   $(this).find('.project-image').mgGlitch();
+   
+});
+
+</script>
+
+
+
+<script>
+  //the below script is used to reload the page when using back button in firefox
+window.onunload = function(){};
+</script>
+
+
+
+<script>
+	$(document).ready(function() { $('#fullpage').fullpage({
+      scrollingSpeed: 1500,
+      easingcss3: 'cubic-bezier(.77, 0, .175, 1)',
+      normalScrollElements: '#overlay',
+      scrollOverflow: true,
+      normalScrollElementTouchThreshold: 50,
+
+
+      onLeave: function(origin, destination, direction){
+		var leavingSection = this;
+
+		if(origin.index < 1000 && direction =='down'){ 
+          	$(".number-signposting").addClass('num-move-up');
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-transition');  }, 500);
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-move-up').addClass('num-move-down');	}, 510);
+          	setTimeout(function() {    $(".number-signposting").addClass('num-transition');  }, 520);
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-move-down');	}, 530);
+          	setTimeout(function() {    $(".number-signposting").text($(".section").eq(destination.index).find('.number-null').text()); 	}, 530);
+			$(".section").eq(origin.index).find('.skew-container-outer').addClass('above-screen');
+       		$(".section").eq(destination.index).find('.skew-container-outer').removeClass('below-screen');
+          	$(".section").eq(origin.index).find('.text-container').addClass('text-above-screen');
+       		$(".section").eq(destination.index).find('.text-container').removeClass('text-below-screen');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.info-outer-overlay').removeClass('opacity-zero');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.info-outer-overlay').addClass('opacity-zero');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.social-container-footer').removeClass('social-out');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.social-container-footer').addClass('social-out');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.para.credit-footer').removeClass('opacity-z');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.para.credit-footer').addClass('opacity-z');       
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('.main-container').find('.signposting_container').addClass('opacity-zero-flip');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('.main-container').find('.num-container').addClass('opacity-zero');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('.main-container').siblings('.nav-arrows').addClass('opacity-z');
+          	setTimeout(function() {   $(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('.main-container').siblings('.nav-arrows').addClass('display-none');	}, 500);
+          	$(".section").eq(origin.index).find('.intro-null-for-fullpage').closest('.main-container').find('.signposting_container').removeClass('opacity-zero-flip');
+          	$(".section").eq(origin.index).find('.intro-null-for-fullpage').closest('.main-container').find('.num-container').removeClass('opacity-zero');  
+		}
+    	if(origin.index < 1000 && direction =='up'){
+          	$(".number-signposting").addClass('num-move-down');
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-transition');  }, 500);
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-move-down').addClass('num-move-up');	}, 510);
+          	setTimeout(function() {    $(".number-signposting").addClass('num-transition');  }, 520);
+          	setTimeout(function() {    $(".number-signposting").removeClass('num-move-up');	}, 530);
+          	setTimeout(function() {    $(".number-signposting").text($(".section").eq(destination.index).find('.number-null').text()); 	}, 530);
+        	$(".section").eq(origin.index).find('.skew-container-outer').addClass('below-screen');
+        	$(".section").eq(destination.index).find('.skew-container-outer').removeClass('above-screen');
+          	$(".section").eq(origin.index).find('.text-container').addClass('text-below-screen');
+        	$(".section").eq(destination.index).find('.text-container').removeClass('text-above-screen');
+            $(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.para.credit-footer').removeClass('opacity-z');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.para.credit-footer').addClass('opacity-z');  
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.info-outer-overlay').removeClass('opacity-zero');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.info-outer-overlay').addClass('opacity-zero');
+          	$(".section").eq(destination.index).find('.footer-null-for-fullpage').closest('body').find('.social-container-footer').removeClass('social-out');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('body').find('.social-container-footer').addClass('social-out');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('.main-container').find('.signposting_container').removeClass('opacity-zero-flip');
+          	$(".section").eq(destination.index).find('.intro-null-for-fullpage').closest('.main-container').find('.signposting_container').addClass('opacity-zero-flip');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('.main-container').find('.num-container').removeClass('opacity-zero');
+          	$(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('.main-container').siblings('.nav-arrows').removeClass('display-none'); 
+          	setTimeout(function() {    $(".section").eq(origin.index).find('.footer-null-for-fullpage').closest('.main-container').siblings('.nav-arrows').removeClass('opacity-z');   }, 30);
+          	$(".section").eq(destination.index).find('.intro-null-for-fullpage').closest('.main-container').find('.num-container').addClass('opacity-zero'); 
+      	}
+    	if(origin.index == 0 && direction =='down'){
+          	setTimeout(function() {  $('.ms-intro').removeClass('opacity-z');	 }, 1000);
+          	$('.ms-logo').addClass('opacity-z');
+            setTimeout(function() {   $('.dot-inner').removeClass('opacity-z');   }, 1500);
+          	setTimeout(function() {   $('.cursor-down').addClass('opacity-z');	 }, 1500);
+        	setTimeout(function() {   $('.glitch_image_wrapper').addClass('glitch-image-out');   }, 750);
+          	$('.cube_image_fly').addClass('move-down');
+          	$('.cube_image_the').addClass('move-up');
+          	$('.cube_image_melt').addClass('move-right');
+          	setTimeout(function() {  $('.cube_wrapper').addClass('opacity-z');	}, 300);
+          	setTimeout(function() {   $('.perspective_text').addClass('intro-text-moved');	}, 750);
+          	setTimeout(function() {   $('.intro_container_inner').removeClass('into-small');			}, 750);
+          	setTimeout(function() {  	$('.intro_container_inner').removeClass('opacity-z');	}, 750);
+          	setTimeout(function() {  	$('.nav-arrows').removeClass('opacity-z');	}, 1250);
+          	setTimeout(function() {  	$('.info-outer-overlay').removeClass('opacity-zero');	}, 1250);
+          	setTimeout(function() {  	$('.signposting_container-intro').removeClass('opacity-zero-flip');	}, 1250);
+          
+      	}
+    	if(origin.index == 1 && direction =='up'){
+          	$('.ms-intro').addClass('opacity-z');
+          	setTimeout(function() {  $('.ms-logo').removeClass('opacity-z');	}, 500);
+          	setTimeout(function() {  $('.dot-inner').addClass('opacity-z');		}, 1500);
+          	setTimeout(function() {  $('.cursor-down').removeClass('opacity-z');	}, 1500);
+        	setTimeout(function() {  $('.glitch_image_wrapper').removeClass('glitch-image-out');  }, 500);
+            setTimeout(function() {   $('.cube_image_fly').removeClass('move-down');	}, 500);
+          	setTimeout(function() {   $('.cube_image_the').removeClass('move-up');		}, 500);
+          	setTimeout(function() {   $('.cube_image_melt').removeClass('move-right');	}, 500);
+          	setTimeout(function() {   $('.cube_wrapper').removeClass('opacity-z');	}, 1000);
+          	$('.perspective_text').removeClass('intro-text-moved');
+          	$('.intro_container_inner').addClass('into-small');
+          	setTimeout(function() {  $('.intro_container_inner').addClass('opacity-z'); 	}, 500);
+          	$('.nav-arrows').addClass('opacity-z'); 	
+          	$('.info-outer-overlay').addClass('opacity-zero');
+          	$('.signposting_container-intro').addClass('opacity-zero-flip');
+      	}
+    	if(origin.index == 1 && direction =='down'){
+          	$('.signposting_container-intro').addClass('opacity-zero-flip');
+          	$('.ms-intro').addClass('opacity-z');
+          
+      	}
+    	if(origin.index == 2 && direction =='up'){
+          	$('.signposting_container-intro').removeClass('opacity-zero-flip');
+          	setTimeout(function() {  $('.ms-intro').removeClass('opacity-z');	 }, 500);
+      	}         
+    	if(origin.index == 1 && direction =='down'){
+        	$('.intro_text_container').addClass('up-100-vh');
+      	}   
+    	if(origin.index == 2 && direction =='up'){
+        	$('.intro_text_container').removeClass('up-100-vh');
+      	}         
+        
+         
+      }
+    });
+});
+  
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>
+// delay a link
+$(function() {
+      $('.delay').on('click', function(e) {
+          e.preventDefault();
+          var self = this;
+          setTimeout(function() {
+              window.location.href = self.href;
+          }, 1500);
+      });
+ });
+</script>
+
+
+
+<script>
+// Move static hero section to the start of the fullpage.js collection list
+$("#hero-section, #intro-section").prependTo("#fullpage");
+
+// Move static footer section to the end of the fullpage.js collection list
+$("#footer-section").appendTo("#fullpage");
+
+
+</script>
+
+<script>
+$(".skew-container-inner").mouseover(function(){
+	$(this).closest('.project-wrapper').find('.perspective_text_title').addClass('perspective-text-hover');
+  $(this).find('.project-image').addClass('project-image-hover');
+  $(this).closest('.skew-container').find('.arrow-head').addClass('arrow-head-hover');
+  $(this).find('.id-grain-two').addClass('grain-image-hover');
+});
+$(".skew-container-inner").mouseout(function(){
+	$(this).closest('.project-wrapper').find('.perspective_text_title').removeClass('perspective-text-hover');
+  $(this).find('.project-image').removeClass('project-image-hover');
+    $(this).closest('.skew-container').find('.arrow-head').removeClass('arrow-head-hover');
+    $(this).find('.id-grain-two').removeClass('grain-image-hover');
+});
+
+$(".info-outer").mouseover(function(){
+	$('.info-outer-overlay').children('.info-container').children().addClass('black');
+});
+$(".info-outer").mouseout(function(){
+	$('.info-outer-overlay').children('.info-container').children().removeClass('black');
+});
+
+$(".skew-container-inner").click(function(){
+   $.fn.fullpage.setAllowScrolling(false);
+   $(this).siblings('.arrow-head').addClass('arrow-head-clicked');
+   $(this).find('.project-image').addClass('project-image-clicked');
+   $(this).closest('.project-wrapper').find('.perspective_text_title').addClass('perspective-text-clicked');
+   $(this).closest('.skew-container').addClass('skew-container-clicked');
+   $('.signposting_container').addClass('opacity-zero');
+   $('.num-container').addClass('opacity-zero');
+   $('.info-outer-overlay').addClass('opacity-zero');
+   $('.nav-arrows').addClass('opacity-z');
+   $('.cursor').css("opacity", "0");
+   $('.mouse-track-overlay').removeClass('display-none');
+   $(this).closest('.section').addClass('smooth').addClass('section-back-to-position');
+   
+});
+
+
+$(".fixed-number").text($("#fullpage > div").length-3 );
+
+
+
+$('#fullpage').each(function() {
+   if ($("#fullpage > .section.count").length > 9) { //if looking for direct descendants then do .children('div').length
+      $('.zero').css("display", "none");
+  }
+  else {
+  	$('.zero').css("display", "block");
+  }
+});
+
+
+
+$('.down-arrow, #hero-section').click(function(){
+    $.fn.fullpage.moveSectionDown();
+});
+
+
+$('.up-arrow').click(function(){
+    $.fn.fullpage.moveSectionUp();
+});
+
+
+</script>
+
+<script>
+    $('.info-outer').on('click',function(){
+if($(this).attr('data-click-state') == 1) {
+$(this).attr('data-click-state', 0)
+$.fn.fullpage.setAllowScrolling(true);
+setTimeout(function(){  $('.pop-up').addClass('closed');	 }, 1500);
+setTimeout(function(){  $('.pop-up-overlay').addClass('hidden');	 }, 0);
+setTimeout(function(){  $('.main-container-inner').removeClass('section-small');		}, 0);
+$('.left-column-inner').addClass('out');
+$('.info-heading-solid').addClass('out');
+$('.main-info-text').addClass('out');
+$('.social-inner').addClass('out');
+$('.para.credit').addClass('out');
+} else {
+$(this).attr('data-click-state', 1)
+$.fn.fullpage.setAllowScrolling(false);
+setTimeout(function(){  $('.pop-up').removeClass('closed');		}, 500);
+$('.pop-up-overlay').removeClass('hidden');
+setTimeout(function(){  $('.main-container-inner').addClass('section-small');  }, 510);
+setTimeout(function(){  $('.left-column-inner').removeClass('out');	 }, 550);
+setTimeout(function(){  $('.info-heading-solid').removeClass('out');  }, 550);
+setTimeout(function(){  $('.main-info-text').removeClass('out');	 }, 550);
+setTimeout(function(){  $('.social-inner').removeClass('out');	 }, 550);
+setTimeout(function(){  $('.para.credit').removeClass('out');	 }, 550);
+}
+
+});
+  
+</script>
+
+</body></html>

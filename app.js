@@ -27,6 +27,7 @@ const updateHref = (hostname, url) => {
     0,
     document.baseURI.lastIndexOf("/") + 1
   );
+  // get base domain name with http/https
   const domainURI = document.baseURI.substring(
     0,
     document.baseURI.indexOf(document.domain) + document.domain.length + 1
@@ -46,9 +47,27 @@ const reloadAll = (parent, tagName, hostname) => {
     if (node.src) {
       newNode.src = updateHref(hostname, node.src);
     }
-
-    node.parentElement.replaceChild(newNode, node);
+    // replaceChild doesn't trigger content load
+    // replace nodes where location matters but append scripts/links
+    if (tagName === "script" || tagName === "link") {
+      node.parentElement.removeChild(node);
+      document.body.appendChild(newNode);
+    } else {
+      node.parentElement.replaceChild(newNode, node);
+    }
   }
+};
+
+const recreateNode = node => {
+  const newNode = document.createElement(node.localName);
+  const attrs = node.attributes;
+  if (attrs) {
+    for (let i = 0; i < attrs.length; i++) {
+      newNode.setAttribute(attrs[i].nodeName, attrs[i].nodeValue);
+    }
+  }
+  newNode.innerHTML = node.innerHTML;
+  return newNode;
 };
 
 const replaceHTML = (hostname, html) => {
@@ -56,7 +75,7 @@ const replaceHTML = (hostname, html) => {
   const doc = parser.parseFromString(html, "text/html");
 
   doc.head.childNodes.forEach(n => {
-    const newNode = n.cloneNode(true);
+    const newNode = recreateNode(n);
     if (n.href) {
       newNode.href = updateHref(hostname, n.href);
     }
@@ -66,11 +85,57 @@ const replaceHTML = (hostname, html) => {
     document.head.appendChild(newNode);
   });
 
-  const body = doc.getElementsByTagName("body")[0];
-  if (body) {
-    const toReload = ["script", "img", "link", "a"];
-    toReload.forEach(tag => reloadAll(body, tag, hostname));
-    document.body = body;
+  document.body = doc.body.cloneNode(true);
+
+  const toReload = ["img", "link", "a"];
+  toReload.forEach(tag => reloadAll(document.body, tag, hostname));
+
+  const scripts = document.body.getElementsByTagName("script");
+  let toAdd = [];
+  let toDelete = [];
+
+  for (let i = 0; i < scripts.length; i++) {
+    const n = scripts[i];
+    const newNode = recreateNode(n);
+    if (n.src) {
+      newNode.src = updateHref(hostname, n.src);
+    }
+
+    toDelete.push(n);
+    toAdd.push(newNode);
+  }
+
+  toDelete.forEach(n => {
+    n.parentNode.removeChild(n);
+  });
+
+  // makes sure to add scripts in order. switch this out for something more efficient later
+  addScripts(toAdd);
+
+  emitDomLoaded();
+};
+
+const emitDomLoaded = () => {
+  contentLoaded = true;
+  var DOMContentLoaded_event = document.createEvent("Event");
+  DOMContentLoaded_event.initEvent("DOMContentLoaded", true, true);
+  window.document.dispatchEvent(DOMContentLoaded_event);
+};
+
+const addScripts = scripts => {
+  if (scripts.length < 1) {
+    return;
+  }
+  const node = scripts[0];
+  const toAdd = scripts.slice(1);
+  if (!!node.src) {
+    node.onload = () => {
+      addScripts(toAdd);
+    };
+    document.body.appendChild(node);
+  } else {
+    document.body.appendChild(node);
+    addScripts(toAdd);
   }
 };
 
@@ -79,22 +144,3 @@ const loadPage = async url => {
   const hostname = getHostname(url);
   replaceHTML(hostname, pageContent);
 };
-
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("load-form");
-  form.addEventListener("submit", evt => {
-    evt.preventDefault();
-    const btn = document.getElementById("load-btn");
-    btn.innerHTML = "Loading...";
-    let toLoad = (document.getElementById("to-load") || {}).value;
-    if (toLoad && toLoad.length > 0) {
-      if (toLoad[toLoad.length - 1] !== "/") {
-        toLoad += "/";
-      }
-      if (!toLoad.startsWith("http")) {
-        toLoad = "https://" + toLoad;
-      }
-      loadPage(toLoad);
-    }
-  });
-});
