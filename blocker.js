@@ -15,15 +15,7 @@ document.addEventListener("DOMContentLoaded", evt => {
     const btn = document.getElementById("load-btn");
     btn.innerHTML = "Loading...";
     let toLoad = (document.getElementById("to-load") || {}).value;
-    if (toLoad && toLoad.length > 0) {
-      if (toLoad[toLoad.length - 1] !== "/") {
-        toLoad += "/";
-      }
-      if (!toLoad.startsWith("http")) {
-        toLoad = "https://" + toLoad;
-      }
-      loadPage(toLoad);
-    }
+    loadPage(toLoad);
   });
 });
 

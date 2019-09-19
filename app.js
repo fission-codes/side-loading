@@ -1,64 +1,79 @@
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com";
+const fetchIPLD = async (cid) => {
+  const ipfs = await getIpfs.default()
+  await ipfs.swarm.connect("/dns4/ipfs.runfission.com/tcp/4003/wss/ipfs/QmVLEz2SxoNiFnuyLpbXsH6SvjPTrHNMU88vCQZyhgBzgw")
+  const resp = await ipfs.get(cid)
+  if(resp.length === 1){
+    return resp[0].content
+  }
+  const toFetch = resp.filter(node => node.type === "file")
+  const filenames = toFetch.map(node => node.path.replace(`${cid}/`, ''))
+  const contents = await Promise.all(
+    toFetch.map(node => ipfs.get(node.hash))
+  )
+  const result = filenames.reduce((acc, curr, i)=>{
+    acc[curr] = contents[i][0].content
+    return acc
+  },{})
+  return result
+}
 
-const getContent = url => {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(xhr.response);
-      } else {
-        reject(new Error(xhr.statusText));
-      }
-    };
-    const proxyURL = `${CORS_PROXY}/${url}`;
-    xhr.open("GET", proxyURL, true);
-    xhr.send();
-  });
-};
+const getMimeType = (file) => {
+  if(file.endsWith('gif')){
+    return 'image/gif'
+  }else if(file.endsWith('js')){
+    return 'application/javascript'
+  }else if(file.endsWith('css')){
+    return 'text/css'
+  }
+  return 'application/octet-stream'
+}
 
-const getHostname = url => {
-  const tmp = document.createElement("a");
-  tmp.href = url;
-  return `https://${tmp.hostname}/`;
-};
+const getURLForPath = (ipld, path) => {
+  const bytes = ipld[path]
+  if(!bytes){
+    return path
+  }
+  const type = getMimeType(path)
+  const file = new window.Blob([bytes], { type })
+  const fileURL = window.URL.createObjectURL(file)
+  return fileURL
+}
 
-const updateHref = (hostname, url) => {
-  const baseURI = document.baseURI.substring(
-    0,
-    document.baseURI.lastIndexOf("/") + 1
-  );
-  // get base domain name with http/https
-  const domainURI = document.baseURI.substring(
-    0,
-    document.baseURI.indexOf(document.domain) + document.domain.length + 1
-  );
+const getResourceForLocation = (ipld, loc) => {
+  if(loc === '' || loc === '/'){
+    loc = 'index.html'
+  }
+  return ipld[loc]
+}
 
-  return url.replace(baseURI, hostname).replace(domainURI, hostname);
-};
+const decodeUint8Arr = (arr) => (
+  !!arr ? new TextDecoder("utf-8").decode(arr) : undefined
+)
 
-const reloadAll = (parent, tagName, hostname) => {
-  const collection = parent.getElementsByTagName(tagName);
-  for (let i = 0; i < collection.length; i++) {
-    const node = collection[i];
-    const newNode = node.cloneNode(true);
-    if (node.href) {
-      newNode.href = updateHref(hostname, node.href);
-    }
-    if (node.src) {
-      newNode.src = updateHref(hostname, node.src);
-    }
-    // replaceChild doesn't trigger content load
-    // replace nodes where location matters but append scripts/links
+const reloadAll = (parent, tagName, ipld) => {
+  const collection = parent.getElementsByTagName(tagName)
+  let toDelete = []
+  let toAdd = []
+  for (let i=0; i<collection.length; i++){
+    const node = collection[i]
+    const newNode = recreateNode(ipld,node)
     if (tagName === "script" || tagName === "link") {
-      node.parentElement.removeChild(node);
-      document.body.appendChild(newNode);
+      toDelete.push(node)
+      toAdd.push(newNode)
     } else {
       node.parentElement.replaceChild(newNode, node);
     }
   }
-};
 
-const recreateNode = node => {
+  toDelete.forEach(n => {
+    n.parentNode.removeChild(n);
+  });
+  toAdd.forEach(n => {
+    document.body.appendChild(n)
+  })
+}
+
+const recreateNode = (ipld, node) => {
   const newNode = document.createElement(node.localName);
   const attrs = node.attributes;
   if (attrs) {
@@ -66,53 +81,35 @@ const recreateNode = node => {
       newNode.setAttribute(attrs[i].nodeName, attrs[i].nodeValue);
     }
   }
+
+  if(newNode.getAttribute('src')){
+    const newSrc = getURLForPath(ipld, newNode.getAttribute('src'))
+    newNode.setAttribute('src', newSrc)
+  }
+  if(newNode.getAttribute('href')){
+    const newHref = getURLForPath(ipld, newNode.getAttribute('href'))
+    newNode.setAttribute('href', newHref)
+  }
+
   newNode.innerHTML = node.innerHTML;
   return newNode;
 };
 
-const replaceHTML = (hostname, html) => {
+const replaceHTML = (ipld) => {
+  const page = document.location.pathname
+  const pageContent = decodeUint8Arr(getResourceForLocation(ipld, page))
   const parser = new DOMParser();
-  const doc = parser.parseFromString(html, "text/html");
+  const doc = parser.parseFromString(pageContent, "text/html");
 
   doc.head.childNodes.forEach(n => {
-    const newNode = recreateNode(n);
-    if (n.href) {
-      newNode.href = updateHref(hostname, n.href);
-    }
-    if (n.src) {
-      newNode.src = updateHref(hostname, n.src);
-    }
+    const newNode = recreateNode(ipld, n);
     document.head.appendChild(newNode);
   });
 
   document.body = doc.body.cloneNode(true);
 
-  const toReload = ["img", "link", "a"];
-  toReload.forEach(tag => reloadAll(document.body, tag, hostname));
-
-  const scripts = document.body.getElementsByTagName("script");
-  let toAdd = [];
-  let toDelete = [];
-
-  for (let i = 0; i < scripts.length; i++) {
-    const n = scripts[i];
-    const newNode = recreateNode(n);
-    if (n.src) {
-      newNode.src = updateHref(hostname, n.src);
-    }
-
-    toDelete.push(n);
-    toAdd.push(newNode);
-  }
-
-  toDelete.forEach(n => {
-    n.parentNode.removeChild(n);
-  });
-
-  // makes sure to add scripts in order. switch this out for something more efficient later
-  addScripts(toAdd);
-
-  emitDomLoaded();
+  const toReload = ["img", "link", "a", "scripts"]
+  toReload.forEach(tag => reloadAll(document.body, tag, ipld));
 };
 
 const emitDomLoaded = () => {
@@ -120,31 +117,32 @@ const emitDomLoaded = () => {
   var DOMContentLoaded_event = document.createEvent("Event");
   DOMContentLoaded_event.initEvent("DOMContentLoaded", true, true);
   window.document.dispatchEvent(DOMContentLoaded_event);
-  var WindowLoad_event = window.createEvent("Event");
+  var WindowLoad_event = document.createEvent("Event");
   WindowLoad_event.initEvent("load", true, true);
   window.dispatchEvent(WindowLoad_event);
-
 };
 
-const addScripts = scripts => {
-  if (scripts.length < 1) {
-    return;
-  }
-  const node = scripts[0];
-  const toAdd = scripts.slice(1);
-  if (!!node.src) {
-    node.onload = () => {
-      addScripts(toAdd);
-    };
-    document.body.appendChild(node);
-  } else {
-    document.body.appendChild(node);
-    addScripts(toAdd);
-  }
+const loadPage = async cid => {
+  const ipld = await fetchIPLD(cid)
+  console.log('ipld: ', ipld)
+  replaceHTML(ipld);
+  emitDomLoaded();
 };
 
-const loadPage = async url => {
-  const pageContent = await getContent(url);
-  const hostname = getHostname(url);
-  replaceHTML(hostname, pageContent);
-};
+// const addScripts = scripts => {
+//   if (scripts.length < 1) {
+//     return;
+//   }
+//   const node = scripts[0];
+//   const toAdd = scripts.slice(1);
+//   if (!!node.src) {
+//     node.onload = () => {
+//       addScripts(toAdd);
+//     };
+//     document.body.appendChild(node);
+//   } else {
+//     document.body.appendChild(node);
+//     addScripts(toAdd);
+//   }
+// };
+
